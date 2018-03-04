@@ -1,5 +1,5 @@
 #define LED 8
-#define kropka 200
+#define dot_length 200
 
 struct Character {
   char letter;
@@ -43,12 +43,12 @@ int find_letter(char l) {
 void blink_LED(char c){
   if(c == '-'){
     digitalWrite(LED, HIGH);
-    delay(3*kropka);
+    delay(3 * dot_length);
     digitalWrite(LED, LOW);
   }
   if(c == '.'){
     digitalWrite(LED, HIGH);
-    delay(kropka);
+    delay(dot_length);
     digitalWrite(LED, LOW);
   }
   delay(3*kropka);
@@ -66,7 +66,7 @@ void print_letter(char letter) {
     i++;
   }
   //printf("\t%c\n", alphabet[index].letter);
-  delay(7*kropka);
+  delay(7 * dot_length);
 }
 
 
@@ -79,12 +79,12 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  String tekst;
+  String text;
   if(Serial.available() > 0){
-    tekst = Serial.readStringUntil('\n');
+    text = Serial.readStringUntil('\n');
     int i = 0;
-    while (tekst[i] != '\0') {
-      print_letter(tekst[i]);
+    while (text[i] != '\0') {
+      print_letter(text[i]);
       i++;
     }
   }
