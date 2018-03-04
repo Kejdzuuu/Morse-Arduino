@@ -51,7 +51,7 @@ void blink_LED(char c){
     delay(dot_length);
     digitalWrite(LED, LOW);
   }
-  delay(3*kropka);
+  delay(3 * dot_length);
 }
 
 void print_letter(char letter) {
